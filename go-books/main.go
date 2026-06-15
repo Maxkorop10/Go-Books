@@ -79,7 +79,7 @@ func addBook(db *sql.DB) http.HandlerFunc {
 func deleteBook(db *sql.DB) http.HandlerFunc {
 	return func(wr http.ResponseWriter, req *http.Request) {
 		vars := mux.Vars(req)
-		id := vars["id"] // Беремо ID з URL
+		id := vars["id"]
 
 		_, err := db.Exec("DELETE FROM books WHERE id = $1", id)
 		if err != nil {
